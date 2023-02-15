@@ -2,8 +2,6 @@
 const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-//aggregate function
-
 //module exports
 module.exports = {
     //Get all thought

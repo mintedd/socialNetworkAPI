@@ -16,14 +16,17 @@ const thoughtSchema = new Schema(
             default: Date.now,
             get: (date) => moment(date).format('MMM D, YYYY, h:mm a')
         },
-        username: [
-            {
-                type: Schema.Types.ObjectId,
-                String,
-                required: true,
-                ref: 'User',
-            }
-        ],
+        username: {
+            //     {
+            //         type: Schema.Types.ObjectId,
+            //         String,
+            //         required: true,
+            //         ref: 'User',
+            //     }
+            // ],
+            type: String,
+            required: true,
+        },
         reactions: [reactionSchema],
     },
     { //getter method to format time 
