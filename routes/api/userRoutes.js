@@ -32,7 +32,7 @@ router
 
 // api/users/:userId/friends/:friendId
 router
-    .route('/:userId/friends/:friendsId')
+    .route('/:userId/friends/:friendId')
     .post(addFriend)
     .delete(removeFriend)
 
