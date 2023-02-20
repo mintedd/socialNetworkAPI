@@ -1,5 +1,5 @@
 //require model
-const { ObjectId } = require('mongoose').Types;
+// const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 //module exports
@@ -25,7 +25,7 @@ module.exports = {
         Thought.create(req.body)
             .then((thought) => {
                 return User.findOneAndUpdate(
-                    { _id: req.body.UserId },
+                    { _id: req.body.userId },
                     { $addToSet: { thoughts: thought._id } },
                     { new: true }
                 )
@@ -35,7 +35,7 @@ module.exports = {
                     ? res.status(404).json({
                         message: 'Thought created, but no user found with that ID',
                     })
-                    : res.json('Created thought!')
+                    : res.json(user)
             )
             .catch((err) => {
                 res.status(500).json(err)

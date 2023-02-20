@@ -17,13 +17,6 @@ const thoughtSchema = new Schema(
             get: (date) => moment(date).format('MMM D, YYYY, h:mm a')
         },
         username: {
-            //     {
-            //         type: Schema.Types.ObjectId,
-            //         String,
-            //         required: true,
-            //         ref: 'User',
-            //     }
-            // ],
             type: String,
             required: true,
         },
@@ -32,19 +25,14 @@ const thoughtSchema = new Schema(
     { //getter method to format time 
         toJSON: {
             getters: true,
-        },
-        id: false,
-    },
-    {
-        toJSON: {
             virtuals: true,
         },
         id: false,
-    }
+    },
 );
 
 //create a virtual "thoughtCount"
-reactionSchema
+thoughtSchema
     .virtual('reactionCount').get(function () {
         return this.reactions.length;
     })
